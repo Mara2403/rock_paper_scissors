@@ -94,21 +94,32 @@ function singleRound() {
   let userSelection = prompt('Choose one: rock, paper or scissors');
   userSelection = userSelection.toLowerCase();
 
-  //winer of this round is://
+
+  //winner of this round is://
 
   if ((userSelection == 'rock') || (userSelection == 'paper') || (userSelection == 'scissors')) {
-  console.log("You've chosen - " + userSelection)
-    winner(computerSelection, userSelection);
+  console.log("You've chosen - " + userSelection);
     console.log(winner(computerSelection, userSelection));
   } else {
      console.log('Try again.')
   }
- 
-
 };
 
-let userPoints = 0;
+
+
+/*let userPoints = 0;
 singleRound();
+if (winner(computerSelection, userSelection) == 'You won! Rock beats scissors' 
+|| winner(computerSelection, userSelection) == 'You won! Paper beats rock.'
+|| winner(computerSelection, userSelection) == 'You won! Scissors beats paper.') {
+  userPoints = userPoints + 1;
+  console.log('User points: ' + userPoints);}
+  else {
+    console.log('User points: ' + userPoints);
+  };
+*/
+
+
 singleRound();
 singleRound();
 
