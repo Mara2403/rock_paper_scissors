@@ -8,12 +8,12 @@ function getComputerChoice() {
     return "scissors"
   }
   }
-  getComputerChoice();
-  console.log("Computer made his choice.");
+  //getComputerChoice();//
+  //console.log("Computer made his choice.");//
   
-  const computerSelection = getComputerChoice(); /*am I calling a function here?*/
-  console.log(computerSelection);
-  /*later I don't want to see it be displayed*/
+  //const computerSelection = getComputerChoice(); /*am I calling a function here?//
+  //console.log(computerSelection);//
+  //later I don't want to see it be displayed//
 
 
 function winner(computerSelection, userSelection) {
@@ -22,7 +22,7 @@ function winner(computerSelection, userSelection) {
     || (userSelection === 'paper' && computerSelection === 'paper') 
     || (userSelection === 'scissors' && computerSelection === 'scissors')
     ) {
-    return ('It\'s a tie')}
+    return ('It\'s a tie.')}
 
   else if (userSelection === 'rock' && computerSelection === 'paper') {
     return ('You lose. Paper beats rock.');
@@ -48,20 +48,22 @@ function winner(computerSelection, userSelection) {
 
 
 
-let userSelection = prompt('Choose one: rock, paper or scissors');
-userSelection = userSelection.toLowerCase();
+//let userSelection = prompt('Choose one: rock, paper or scissors');//
+//userSelection = userSelection.toLowerCase();//
 
+/*
 if ((userSelection == 'rock') || (userSelection == 'paper') || (userSelection == 'scissors')) {
   console.log("You've chosen - " + userSelection)
 } else {
   console.log('Try again.')
 }
+*/
 
-console.log(winner(computerSelection, userSelection));
+//console.log(winner(computerSelection, userSelection));//
 
-let userPoints = 0;
+//let userPoints = 0;//
 
-if (winner(computerSelection, userSelection) == 'You won! Rock beats scissors' 
+/*if (winner(computerSelection, userSelection) == 'You won! Rock beats scissors' 
 || winner(computerSelection, userSelection) == 'You won! Paper beats rock.'
 || winner(computerSelection, userSelection) == 'You won! Scissors beats paper.') {
   userPoints = userPoints + 1;
@@ -69,7 +71,7 @@ if (winner(computerSelection, userSelection) == 'You won! Rock beats scissors'
   else {
     console.log('User points: ' + userPoints);
   };
-
+*/
 
    /* console.log(computerSelection);
     userSelection = prompt('Choose one: rock, paper or scissors');
@@ -79,3 +81,34 @@ if (winner(computerSelection, userSelection) == 'You won! Rock beats scissors'
     console.log(userPoints);
 
 */
+
+
+function singleRound() {
+
+  //computer choice//
+  const computerSelection = getComputerChoice(); /*am I calling a function here?*/
+  console.log("Computer made his choice.");
+  console.log(computerSelection); //later remove to not see what it chose//
+
+  //user choice//
+  let userSelection = prompt('Choose one: rock, paper or scissors');
+  userSelection = userSelection.toLowerCase();
+
+  //winer of this round is://
+
+  if ((userSelection == 'rock') || (userSelection == 'paper') || (userSelection == 'scissors')) {
+  console.log("You've chosen - " + userSelection)
+    winner(computerSelection, userSelection);
+    console.log(winner(computerSelection, userSelection));
+  } else {
+     console.log('Try again.')
+  }
+ 
+
+};
+
+let userPoints = 0;
+singleRound();
+singleRound();
+singleRound();
+
