@@ -45,7 +45,7 @@ function singleRound() {
 
   //computer choice//
   const computerSelection = getComputerChoice(); /*am I calling a function here?*/
-  console.log("Computer made his choice.");
+  console.log("Computer made its choice.");
   console.log(computerSelection); //to be removed later to not see what it chose//
 
   //user choice//
@@ -104,5 +104,18 @@ if (userPoints == 3) {
 }
 
 
-game();
+/*game();*/
+
+
+let rockButton = document.getElementById('btnRock').addEventListener('click', function(){
+  console.log('You chose Rock');
+});
+
+let paperButton = document.getElementById('btnPaper').addEventListener('click', function(){
+  console.log('You chose Paper');
+});
+
+let scissorsButton = document.getElementById('btnScissors').addEventListener('click', function(){
+  console.log('You chose Scissors');
+})
 
