@@ -49,9 +49,27 @@ function singleRound() {
   console.log(computerSelection); //to be removed later to not see what it chose//
 
   //user choice//
-  let userSelection = prompt('Choose one: rock, paper or scissors');
-  userSelection = userSelection.toLowerCase();
+  /*let userSelection = prompt('Choose one: rock, paper or scissors');
+  userSelection = userSelection.toLowerCase();*/
 
+
+  function userMadeChoice() {
+    let rockButton = document.getElementById('btnRock');
+    let paperButton = document.getElementById('btnPaper');
+    let scissorsButton = document.getElementById('btnScissors');
+  
+    rockButton.addEventListener('click', userChoice);
+    paperButton.addEventListener('click', userChoice);
+    scissorsButton.addEventListener('click', userChoice);
+  
+    function userChoice(e) {
+    console.log(e.target.value.toLowerCase());
+  }
+  }
+  
+  
+  let userSelection = userMadeChoice();
+  console.log(userSelection);
 
   //winner of this round is://
   if ((userSelection == 'rock') || (userSelection == 'paper') || (userSelection == 'scissors')) {
@@ -104,18 +122,48 @@ if (userPoints == 3) {
 }
 
 
-/*game();*/
+game();
+let userChoiceText = document.getElementById('user-choice');
 
 
-let rockButton = document.getElementById('btnRock').addEventListener('click', function(){
-  console.log('You chose Rock');
-});
 
-let paperButton = document.getElementById('btnPaper').addEventListener('click', function(){
-  console.log('You chose Paper');
-});
+/* Comment out - trying something else
 
-let scissorsButton = document.getElementById('btnScissors').addEventListener('click', function(){
-  console.log('You chose Scissors');
-})
+let rockButton = document.getElementById('btnRock');
+let paperButton = document.getElementById('btnPaper');
+let scissorsButton = document.getElementById('btnScissors');
 
+rockButton.addEventListener('click', userChoice);
+paperButton.addEventListener('click', userChoice);
+scissorsButton.addEventListener('click', userChoice);
+
+
+
+function userChoice(e) {
+  //console.log(e.target.value);
+  userChoiceText.textContent = "You chose " + e.target.value;
+  let userChose = e.target.value;
+  console.log(userChose);
+  return userChose;
+}
+
+*/
+/* Putting it in the singleRound()
+function userMadeChoice() {
+  let rockButton = document.getElementById('btnRock');
+  let paperButton = document.getElementById('btnPaper');
+  let scissorsButton = document.getElementById('btnScissors');
+
+  rockButton.addEventListener('click', userChoice);
+  paperButton.addEventListener('click', userChoice);
+  scissorsButton.addEventListener('click', userChoice);
+
+  function userChoice(e) {
+  console.log(e.target.value.toLowerCase());
+}
+}
+
+
+let userSelection = userMadeChoice();
+console.log(userSelection);
+*/

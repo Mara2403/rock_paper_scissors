@@ -10,15 +10,27 @@
   </head>
 
   <body>
-    <div class="header">
-      <h1>Rock Paper Scissors</h1>
-      <h3>Choose one:</h3>
+    
+    <div class="container">
+      <div class="header">
+        <h1>Rock Paper Scissors</h1>
+        <h3>Choose one:</h3>
+      </div>
     </div>
+
     <div class="container">
       <div class="buttons">
-          <button class="btn" id="btnRock"><i class="fa-regular fa-hand-back-fist"></i></button>
-          <button class="btn" id="btnPaper"><i class="fa-regular fa-hand"></i></button>
-          <button class="btn" id="btnScissors"><i class="fa-regular fa-hand-scissors"></i></button>
+          <button class="btn" id="btnRock" value="Rock"><i class="fa-regular fa-hand-back-fist"></i></button>
+          <button class="btn" id="btnPaper" value="Paper"><i class="fa-regular fa-hand"></i></button>
+          <button class="btn" id="btnScissors" value="Scissors"><i class="fa-regular fa-hand-scissors"></i></button>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="score">
+        <h3 id="user-choice"></h3>
+        <h3 id="computer-choice"></h3>
+        <h2 id="winner-of-the-round"></h2>
       </div>
     </div>
 
