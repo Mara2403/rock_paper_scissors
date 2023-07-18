@@ -40,6 +40,7 @@ function singleRound(computerSelection, userSelection) {
 
 
 let userPoints = 0;
+let computerPoints = 0;
 
 let rockButton = document.getElementById('btnRock');
 let paperButton = document.getElementById('btnPaper');
@@ -52,13 +53,12 @@ scissorsButton.addEventListener('click', game);
 
 function game(e) {
 
-  if (userPoints === 5) {
+  if (userPoints === 5 || computerPoints === 5) {
   return
   };
 
-
   //user choice//
-  const userSelection = e.target.value.toLowerCase();
+  const userSelection = e.currentTarget.value.toLowerCase();
 
   //computer choice//
   const computerSelection = getComputerChoice();
@@ -69,8 +69,8 @@ function game(e) {
   /*const userSelection = prompt('Choose one: rock, paper or scissors');
   userSelection = userSelection.toLowerCase();*/
 
+  let announcingWinner = document.getElementById('winner-of-the-game');
   
-  //winner of this round is://
   if ((userSelection == 'rock') || (userSelection == 'paper') || (userSelection == 'scissors')) {
   console.log("You chose - " + userSelection);
   console.log(singleRound(computerSelection, userSelection));}
@@ -86,16 +86,30 @@ function game(e) {
   };
 
   if (userPoints === 5) {
-    console.log("YOU WON!")
+    console.log("YOU WON!");
+    announcingWinner.textContent = "YOU WON!";
   }
  
+  if (singleRound(computerSelection, userSelection) == 'You lose. Paper beats rock.'
+  || singleRound(computerSelection, userSelection) == 'You lose. Scissors beats paper.'
+  || singleRound(computerSelection, userSelection) == 'You lose. Rock beats scissors.') {
+  computerPoints = computerPoints + 1;
+  console.log('Computer points: ' + computerPoints);
+  }
+  else {
+    console.log('Computer points: ' + computerPoints);
+  };
 
+  if (computerPoints === 5) {
+    console.log("COMPUTER WON!");
+    announcingWinner.textContent = "COMPUTER WON!";
+  }
 
 let userChoiceText = document.getElementById('players-choice');
 userChoiceText.textContent = "You chose - " + userSelection + ", " + "computer chose - " + computerSelection + ".";
-let winnerOfTheRound = document.querySelector("h2");
+let winnerOfTheRound = document.getElementById("winner-of-the-round");
 winnerOfTheRound.textContent = singleRound(computerSelection, userSelection);
 let score = document.getElementById("score");
-score.textContent = "Your score: " + userPoints;
+score.textContent = "Your score: " + userPoints + ", computer's score: " + computerPoints;
   
 };
