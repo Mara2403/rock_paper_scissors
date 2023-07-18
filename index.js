@@ -107,6 +107,6 @@ userChoiceText.textContent = "You chose - " + userSelection + ", " + "computer c
 let winnerOfTheRound = document.getElementById("winner-of-the-round");
 winnerOfTheRound.textContent = singleRound(computerSelection, userSelection);
 let score = document.getElementById("score");
-score.textContent = "Your score: " + userPoints + ", computer's score: " + computerPoints;
+score.textContent = "Your score: " + userPoints + ". Computer's score: " + computerPoints + ".";
   
 };
