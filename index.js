@@ -10,7 +10,7 @@ function getComputerChoice() {
   }
 
 
-function winner(computerSelection, userSelection) {
+function singleRound(computerSelection, userSelection) {
   if (
     (userSelection === 'rock' && computerSelection === 'rock') 
     || (userSelection === 'paper' && computerSelection === 'paper') 
@@ -45,12 +45,17 @@ let rockButton = document.getElementById('btnRock');
 let paperButton = document.getElementById('btnPaper');
 let scissorsButton = document.getElementById('btnScissors');
   
-rockButton.addEventListener('click', singleRound);
-paperButton.addEventListener('click', singleRound);
-scissorsButton.addEventListener('click', singleRound);
+rockButton.addEventListener('click', game);
+paperButton.addEventListener('click', game);
+scissorsButton.addEventListener('click', game);
     
 
-function singleRound(e) {
+function game(e) {
+
+  if (userPoints === 5) {
+  return
+  };
+
 
   //user choice//
   const userSelection = e.target.value.toLowerCase();
@@ -68,11 +73,11 @@ function singleRound(e) {
   //winner of this round is://
   if ((userSelection == 'rock') || (userSelection == 'paper') || (userSelection == 'scissors')) {
   console.log("You chose - " + userSelection);
-  console.log(winner(computerSelection, userSelection));}
+  console.log(singleRound(computerSelection, userSelection));}
 
-  if (winner(computerSelection, userSelection) == 'You won! Rock beats scissors.' 
-  || winner(computerSelection, userSelection) == 'You won! Paper beats rock.'
-  || winner(computerSelection, userSelection) == 'You won! Scissors beats paper.') {
+  if (singleRound(computerSelection, userSelection) == 'You won! Rock beats scissors.' 
+  || singleRound(computerSelection, userSelection) == 'You won! Paper beats rock.'
+  || singleRound(computerSelection, userSelection) == 'You won! Scissors beats paper.') {
   userPoints = userPoints + 1;
   console.log('User points: ' + userPoints);
   }
@@ -80,20 +85,17 @@ function singleRound(e) {
     console.log('User points: ' + userPoints);
   };
 
-  if (userPoints >= 3) {
-      console.log("YOU WON!")
-    return
-    };
-  
+  if (userPoints === 5) {
+    console.log("YOU WON!")
+  }
+ 
 
 
 let userChoiceText = document.getElementById('players-choice');
 userChoiceText.textContent = "You chose - " + userSelection + ", " + "computer chose - " + computerSelection + ".";
 let winnerOfTheRound = document.querySelector("h2");
-winnerOfTheRound.textContent = winner(computerSelection, userSelection);
-
+winnerOfTheRound.textContent = singleRound(computerSelection, userSelection);
+let score = document.getElementById("score");
+score.textContent = "Your score: " + userPoints;
   
 };
-
-
-/* discord comment: In my opinion you have too many functions. If you read assignments more carefully and plan what you do on a paper, you can see you handle just with `getComputerChoice() {//Write your code for computer choise}` function, `playRound(computerSelection, userSelection) {//Write your conditions how to know who wins}` function and `game() {//Write your code to see who wins the game(5 rounds)}` and maybe `addEventListener()` if you need it.*/
