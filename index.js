@@ -42,14 +42,11 @@ function singleRound(computerSelection, userSelection) {
 let userPoints = 0;
 let computerPoints = 0;
 
-let rockButton = document.getElementById('btnRock');
-let paperButton = document.getElementById('btnPaper');
-let scissorsButton = document.getElementById('btnScissors');
-  
-rockButton.addEventListener('click', game);
-paperButton.addEventListener('click', game);
-scissorsButton.addEventListener('click', game);
-    
+let buttons = document.querySelectorAll(".btn");
+buttons.forEach((item) => {
+  item.addEventListener("click", game)
+});
+
 
 function game(e) {
 
